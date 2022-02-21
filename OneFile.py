@@ -4,27 +4,6 @@ orca = ade.methods.ORCA()
 xtb = ade.methods.XTB()
 import os
 
-# get pKa (there is an error here so result calculation will be done manually)
-def GetPka(DeltGibbsE):
-    DeltGibbsEkJpM = 2600*DeltGibbsE
-    R = 0.008314
-    T = input("What's the Temperature(if you give nothing it will be 273.15K): ")
-    if T == '':
-        T = 273.15
-    LnK = DeltGibbsEkJpM/(-1*R*T)
-    K = np.exp(LnK)
-    pKa = -1*np.log10(K)
-    print(f'pKa = {pKa}')
-    return(pKa)
-
-def PtFVal(DeltGibbsE, pKa):
-    GibbsTxt = f'DeltG = {DeltGibbsE} Ha '
-    pKaTxt = f'pKa = {pKa} '
-    with open('ValsofInt.txt','w') as Valsfile:
-        Valsfile.write(GibbsTxt)
-        Valsfile.write(pKaTxt)
-    Valsfile.close()
-    return(Valsfile)
 
 
 MoI1 = ade.Molecule('aBiCyDNH.xyz', solvent_name=None, charge=0)
@@ -35,6 +14,9 @@ print(MoI2)
 
 MoI1.optimise(method=xtb)
 MoI2.optimise(method=xtb)
+
+MoI1.optimise(method=orca)
+MoI2.optimise(method=orca)
 
 CoI1 = ade.Calculation(name=MoI1.name, molecule=MoI1, method=orca, keywords=orca.keywords.hess, n_cores=48)
 CoI2 = ade.Calculation(name=MoI2.name, molecule=MoI2, method=orca, keywords=orca.keywords.hess, n_cores=48)
