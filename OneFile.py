@@ -27,8 +27,11 @@ def PtFVal(DeltGibbsE, pKa):
     return(Valsfile)
 
 
-MoI1 = ade.Molecule(open("butane.xyz",'r'), solvent_name=None, charge=0)
-MoI2 = ade.Molecule(open("propane.xyz",'r'), solvent_name=None, charge=0)
+MoI1 = ade.Molecule('butane.xyz', solvent_name=None, charge=0)
+MoI2 = ade.Molecule('propane.xyz', solvent_name=None, charge=0)
+
+print(MoI1)
+print(MoI2)
 
 MoI1.optimise(method=xtb)
 MoI2.optimise(method=xtb)
