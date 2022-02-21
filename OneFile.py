@@ -26,8 +26,8 @@ def PtFVal(DeltGibbsE, pKa):
     Valsfile.close()
     return(Valsfile)
 
-Input1 = open("butane.xyz", 'rw')
-Input2 = open("propane.xyz", 'rw')
+Input1 = open("butane.xyz", 'r')
+Input2 = open("propane.xyz", 'r')
 
 MoI1 = ade.Molecule(Input1, solvent_name=None, charge=0)
 MoI2 = ade.Molecule(Input2, solvent_name=None, charge=0)
