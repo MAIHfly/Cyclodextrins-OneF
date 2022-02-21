@@ -6,8 +6,8 @@ import os
 
 
 
-MoI1 = ade.Molecule('aBiCyDNH.xyz', solvent_name=None, charge=0)
-MoI2 = ade.Molecule('aBiCyDNH2.xyz', solvent_name=None, charge=1)
+MoI1 = ade.Molecule('aBiCyDNH.xyz', solvent_name='acetonitrile', charge=0)
+MoI2 = ade.Molecule('aBiCyDNH2.xyz', solvent_name='acetonitrile', charge=1)
 
 print(MoI1)
 print(MoI2)
