@@ -27,8 +27,8 @@ def PtFVal(DeltGibbsE, pKa):
     return(Valsfile)
 
 
-MoI1 = ade.Molecule('butane.xyz', solvent_name=None, charge=0)
-MoI2 = ade.Molecule('propane.xyz', solvent_name=None, charge=0)
+MoI1 = ade.Molecule('aBiCyDNH.xyz', solvent_name=None, charge=0)
+MoI2 = ade.Molecule('aBiCyDNH2.xyz', solvent_name=None, charge=1)
 
 print(MoI1)
 print(MoI2)
@@ -50,4 +50,4 @@ GibbsE2 = MoI2.free_energy
 
 DelGibbs = GibbsE1 - GibbsE2
 
-print(f'G = {DelGibbs} Ha')
+print(f'delG = {DelGibbs} Ha')
