@@ -27,7 +27,7 @@ P1.optimise(method=orca)
 CoI1 = ade.Calculation(name=MoI1.name, molecule=MoI1, method=orca, keywords=orca.keywords.hess, n_cores=128)
 CoI2 = ade.Calculation(name=MoI2.name, molecule=MoI2, method=orca, keywords=orca.keywords.hess, n_cores=128)
 CoIR1 = ade.Calculation(name=R1.name, molecule=R1, method=orca, keywords=orca.keywords.hess, n_cores=128)
-CoIP1 = ade.Calculation(name=P1.name, molecule=P1, method=orca, keywords=orca.keywords.hess, n_cores=128))
+CoIP1 = ade.Calculation(name=P1.name, molecule=P1, method=orca, keywords=orca.keywords.hess, n_cores=128)
 
 CoI1.output.filename = MoI1.name+'.out'
 CoI2.output.filename = MoI2.name+'.out'
@@ -49,7 +49,8 @@ DelGibbs = (GibbsR1 + GibbsE1) - (GibbsE2 + GibbsP1)
 print(f'delG = {DelGibbs} Ha for'+MoI1.name)
 
 NameofFile = MoI1.name+".txt"
+String = f'delG = {DelGibbs} Ha for'+MoI1.name
 
-with open(NameofFile, 'w') as f
-    f.write(f'delG = {DelGibbs} Ha for '+MoI1.name)
+with open(NameofFile, 'w') as f:
+    f.write(String)
     f.close()
