@@ -47,3 +47,9 @@ GibbsP1 = P1.free_energy
 DelGibbs = (GibbsR1 + GibbsE1) - (GibbsE2 + GibbsP1)
 
 print(f'delG = {DelGibbs} Ha for'+MoI1.name)
+
+NameofFile = MoI1.name+".txt"
+
+with open(NameofFile, 'w') as f
+    f.write(f'delG = {DelGibbs} Ha for'+MoI1.name)
+    f.close()
