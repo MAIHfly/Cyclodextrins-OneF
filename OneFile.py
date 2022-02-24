@@ -51,5 +51,5 @@ print(f'delG = {DelGibbs} Ha for'+MoI1.name)
 NameofFile = MoI1.name+".txt"
 
 with open(NameofFile, 'w') as f
-    f.write(f'delG = {DelGibbs} Ha for'+MoI1.name)
+    f.write(f'delG = {DelGibbs} Ha for '+MoI1.name)
     f.close()
