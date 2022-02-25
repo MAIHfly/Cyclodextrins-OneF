@@ -9,7 +9,7 @@ import os
 MoI1 = ade.Molecule('aBiCyDNH.xyz', solvent_name='acetonitrile', charge=0)
 MoI2 = ade.Molecule('aBiCyDNH2.xyz', solvent_name='acetonitrile', charge=1)
 R1 = ade.Molecule('p-fluorophenol',smiles='C1=CC(=CC=C1O)F', solvent_name='acetonitrile')
-P1 = ade.Molecule('p-fluorophenolate',smiles='C1=CC(=CC=C1[O-])F', solvent_name='acetonitrile')
+P1 = ade.Molecule('p-fluorophenolate',smiles='C1=CC(=CC=C1[O-])F', solvent_name='acetonitrile', charge=-1)
 
 print(MoI1)
 print(MoI2)
