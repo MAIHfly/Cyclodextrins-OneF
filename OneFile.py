@@ -3,6 +3,7 @@ import numpy as np
 orca = ade.methods.ORCA()
 xtb = ade.methods.XTB()
 import os
+ade.Config.n_cores = 48
 
 
 
