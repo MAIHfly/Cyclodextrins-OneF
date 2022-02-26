@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -N 1
-#SBATCH -n 128
+#SBATCH --ntasks-per-node=128
 #SBATCH -p EM
 #SBATCH -t 48:00:00
 #SBATCH --gpus=v100-32:4
