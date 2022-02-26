@@ -17,17 +17,17 @@ print(MoI2)
 print(R1)
 print(P1)
 
-MoI1.optimise(method=xtb)
-MoI2.optimise(method=xtb)
-R1.optimise(method=xtb)
-P1.optimise(method=xtb)
+MoI1.optimise(method=xtb, n_cores=96)
+MoI2.optimise(method=xtb, n_cores=96)
+R1.optimise(method=xtb, n_cores=96)
+P1.optimise(method=xtb, n_cores=96)
 
 print('molecules have been optimised with XTB')
 
-MoI1.optimise(method=orca)
-MoI2.optimise(method=orca)
-R1.optimise(method=orca)
-P1.optimise(method=orca)
+MoI1.optimise(method=orca, n_cores=96)
+MoI2.optimise(method=orca, n_cores=96)
+R1.optimise(method=orca, n_cores=96)
+P1.optimise(method=orca, n_cores=96)
 
 print('molecules have been optimised with ORCA')
 
