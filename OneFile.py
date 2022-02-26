@@ -3,12 +3,12 @@ import numpy as np
 orca = ade.methods.ORCA()
 xtb = ade.methods.XTB()
 import os
-ade.Config.n_cores = 48
+ade.Config.n_cores = 128
 
 
 
-MoI1 = ade.Molecule('butane.xyz', solvent_name=None, charge=0)
-MoI2 = ade.Molecule('pentane.xyz', solvent_name=None, charge=0)
+MoI1 = ade.Molecule('aBiCyDNH.xyz', solvent_name=None, charge=0)
+MoI2 = ade.Molecule('aBiCyDNH2.xyz', solvent_name=None, charge=1)
 R1 = ade.Molecule('p-fluorophenol',smiles='C1=CC(=CC=C1O)F', solvent_name='acetonitrile')
 P1 = ade.Molecule('p-fluorophenolate',smiles='C1=CC(=CC=C1[O-])F', solvent_name='acetonitrile', charge=-1)
 
@@ -31,10 +31,10 @@ P1.optimise(method=orca)
 
 print('molecules have been optimised with ORCA')
 
-CoI1 = ade.Calculation(name=MoI1.name, molecule=MoI1, method=orca, keywords=orca.keywords.hess, n_cores=48)
-CoI2 = ade.Calculation(name=MoI2.name, molecule=MoI2, method=orca, keywords=orca.keywords.hess, n_cores=48)
-CoIR1 = ade.Calculation(name=R1.name, molecule=R1, method=orca, keywords=orca.keywords.hess, n_cores=48)
-CoIP1 = ade.Calculation(name=P1.name, molecule=P1, method=orca, keywords=orca.keywords.hess, n_cores=48)
+CoI1 = ade.Calculation(name=MoI1.name, molecule=MoI1, method=orca, keywords=orca.keywords.hess, n_cores=128)
+CoI2 = ade.Calculation(name=MoI2.name, molecule=MoI2, method=orca, keywords=orca.keywords.hess, n_cores=128)
+CoIR1 = ade.Calculation(name=R1.name, molecule=R1, method=orca, keywords=orca.keywords.hess, n_cores=128)
+CoIP1 = ade.Calculation(name=P1.name, molecule=P1, method=orca, keywords=orca.keywords.hess, n_cores=128)
 
 print('Calculations have been carried out')
 
@@ -45,10 +45,10 @@ CoIP1.output.filename = P1.name+'.out'
 
 print('calculations have been output to files')
 
-MoI1.calc_thermo(calc=CoI1, n_cores=48)
-MoI2.calc_thermo(calc=CoI2, n_cores=48)
-R1.calc_thermo(calc=CoIR1, n_cores=48)
-P1.calc_thermo(calc=CoIP1, n_cores=48)
+MoI1.calc_thermo(calc=CoI1, n_cores=128)
+MoI2.calc_thermo(calc=CoI2, n_cores=128)
+R1.calc_thermo(calc=CoIR1, n_cores=128)
+P1.calc_thermo(calc=CoIP1, n_cores=128)
 
 print('thermodynamic calculations have been carried out')
 
