@@ -6,13 +6,15 @@ import os
 
 
 
-MoI1 = ade.Molecule('aBiCyDNH.xyz', solvent_name='acetonitrile', charge=0)
-MoI2 = ade.Molecule('aBiCyDNH2.xyz', solvent_name='acetonitrile', charge=1)
+MoI1 = ade.Molecule('butane.xyz', solvent_name='acetonitrile', charge=0)
+MoI2 = ade.Molecule('penatane.xyz', solvent_name='acetonitrile', charge=0)
 R1 = ade.Molecule('p-fluorophenol',smiles='C1=CC(=CC=C1O)F', solvent_name='acetonitrile')
 P1 = ade.Molecule('p-fluorophenolate',smiles='C1=CC(=CC=C1[O-])F', solvent_name='acetonitrile', charge=-1)
 
 print(MoI1)
 print(MoI2)
+print(R1)
+print(P1)
 
 MoI1.optimise(method=xtb)
 MoI2.optimise(method=xtb)
@@ -43,6 +45,11 @@ GibbsE1 = MoI1.free_energy
 GibbsE2 = MoI2.free_energy
 GibbsR1 = R1.free_energy
 GibbsP1 = P1.free_energy
+
+print(f'gibbsE {MoI1.name} = {GibbsE1} Ha')
+print(f'gibbsE {MoI2.name} = {GibbsE2} Ha')
+print(f'gibbsE {R1.name} = {GibbsR1} Ha')
+print(f'gibbsE {P1.name} = {GibbsP1} Ha')
 
 DelGibbs = (GibbsR1 + GibbsE1) - (GibbsE2 + GibbsP1)
 
