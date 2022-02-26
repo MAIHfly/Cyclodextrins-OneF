@@ -1,9 +1,8 @@
 #!/bin/bash
 #SBATCH -N 1
-#SBATCH --ntasks-per-node=96
 #SBATCH -p EM
-#SBATCH -t 48:00:00
-#SBATCH --gpus=v100-32:4
+#SBATCH -n 128
+#SBATCH -t 24:00:00
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=maihfly
 
