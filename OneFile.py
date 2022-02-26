@@ -7,7 +7,7 @@ import os
 
 
 MoI1 = ade.Molecule('butane.xyz', solvent_name='acetonitrile', charge=0)
-MoI2 = ade.Molecule('penatane.xyz', solvent_name='acetonitrile', charge=0)
+MoI2 = ade.Molecule('pentane.xyz', solvent_name='acetonitrile', charge=0)
 R1 = ade.Molecule('p-fluorophenol',smiles='C1=CC(=CC=C1O)F', solvent_name='acetonitrile')
 P1 = ade.Molecule('p-fluorophenolate',smiles='C1=CC(=CC=C1[O-])F', solvent_name='acetonitrile', charge=-1)
 
