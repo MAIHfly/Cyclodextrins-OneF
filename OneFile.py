@@ -3,12 +3,14 @@ import numpy as np
 orca = ade.methods.ORCA()
 xtb = ade.methods.XTB()
 import os
+
 ade.Config.n_cores = 48
-xtb.keywords.opt = ade.OptKeywords(['HF-3c'])
+
+
 orca.keywords.opt = ade.OptKeywords(['HF-3c'])
-xtb.keywords.sp = ade.SinglePointKeywords(['HF-3c'])
+
 orca.keywords.sp = ade.SinglePointKeywords(['HF-3c'])
-xtb.keywords.hess = ade.HessianKeywords(['HF-3c'])
+
 orca.keywords.hess = ade.HessianKeywords(['HF-3c'])
 
 
