@@ -39,10 +39,10 @@ CoIP1 = ade.Calculation(name=P1.name, molecule=P1, method=orca, keywords=orca.ke
 
 print('Calculations have been carried out')
 
-CoI1.output.filename = MoI1.name+'.out'
-CoI2.output.filename = MoI2.name+'.out'
-CoIR1.output.filename = R1.name+'.out'
-CoIP1.output.filename = P1.name+'.out'
+CoI1.output.filename = MoI1.name+'_hess_orca.out'
+CoI2.output.filename = MoI2.name+'_hess_orca.out'
+CoIR1.output.filename = R1.name+'_hess_orca.out'
+CoIP1.output.filename = P1.name+'_hess_orca.out'
 
 print('calculations have been output to files')
 
