@@ -7,13 +7,13 @@ import os
 Cores = 48
 ade.Config.n_cores = Cores
 
-XTBOpt = ade.OptKeywords(['HF-3c'])
+XTBOpt = ade.OptKeywords(['PBEPBE', 'def2SVP', 'Freq'])
 
-OrcaOpt = ade.OptKeywords(['HF-3c'])
+OrcaOpt = ade.OptKeywords(['PBEPBE', 'def2SVP', 'Freq'])
 
-OrcaSP = ade.SinglePointKeywords(['HF-3c'])
+OrcaSP = ade.SinglePointKeywords(['PBEPBE', 'def2SVP', 'Freq'])
 
-OrcaHessian = ade.HessianKeywords(['HF-3c'])
+OrcaHessian = ade.HessianKeywords(['PBEPBE', 'def2SVP', 'Freq'])
 
 
 
