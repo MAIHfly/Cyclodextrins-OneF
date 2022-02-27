@@ -4,6 +4,9 @@ orca = ade.methods.ORCA()
 xtb = ade.methods.XTB()
 import os
 ade.Config.n_cores = 48
+xtb.keywords.opt = ade.OptKeywords(['HF-3c'])
+orca.keywords.opt = ade.OptKeywords(['HF-3c'])
+orca.keywrods.hess = ade.HessianKeywords(['HF-3c'])
 
 
 
@@ -17,17 +20,17 @@ print(MoI2)
 print(R1)
 print(P1)
 
-MoI1.optimise(method=xtb, n_cores=48)
-MoI2.optimise(method=xtb, n_cores=48)
-R1.optimise(method=xtb, n_cores=48)
-P1.optimise(method=xtb, n_cores=48)
+MoI1.optimise(method=xtb, keywords=xtb.keywords.opt, n_cores=48)
+MoI2.optimise(method=xtb, keywords=xtb.keywords.opt, n_cores=48)
+R1.optimise(method=xtb, keywords=xtb.keywords.opt, n_cores=48)
+P1.optimise(method=xtb, keywords=xtb.keywords.opt, n_cores=48)
 
 print('molecules have been optimised with XTB')
 
-MoI1.optimise(method=orca, n_cores=48)
-MoI2.optimise(method=orca, n_cores=48)
-R1.optimise(method=orca, n_cores=48)
-P1.optimise(method=orca, n_cores=48)
+MoI1.optimise(method=orca, keywords=orca.keywords.opt, n_cores=48)
+MoI2.optimise(method=orca, keywords=orca.keywords.opt, n_cores=48)
+R1.optimise(method=orca, keywords=orca.keywords.opt, n_cores=48)
+P1.optimise(method=orca, keywords=orca.keywords.opt, n_cores=48)
 
 print('molecules have been optimised with ORCA')
 
