@@ -7,11 +7,11 @@ import os
 ade.Config.n_cores = 48
 
 
-orca.keywords.opt = ade.OptKeywords(['HF-3c'])
+OrcaOpt = ade.OptKeywords(['HF-3c'])
 
-orca.keywords.sp = ade.SinglePointKeywords(['HF-3c'])
+OrcaSP = ade.SinglePointKeywords(['HF-3c'])
 
-orca.keywords.hess = ade.HessianKeywords(['HF-3c'])
+OrcaHessian = ade.HessianKeywords(['HF-3c'])
 
 
 
@@ -40,10 +40,10 @@ P1.optimise(method=orca, n_cores=48)
 
 print('molecules have been optimised with ORCA', flush=True)
 
-CoI1 = ade.Calculation(name=MoI1.name, molecule=MoI1, method=orca, keywords=orca.keywords.hess, n_cores=48)
-CoI2 = ade.Calculation(name=MoI2.name, molecule=MoI2, method=orca, keywords=orca.keywords.hess, n_cores=48)
-CoIR1 = ade.Calculation(name=R1.name, molecule=R1, method=orca, keywords=orca.keywords.hess, n_cores=48)
-CoIP1 = ade.Calculation(name=P1.name, molecule=P1, method=orca, keywords=orca.keywords.hess, n_cores=48)
+CoI1 = ade.Calculation(name=MoI1.name, molecule=MoI1, method=orca, keywords=OrcaHessian, n_cores=48)
+CoI2 = ade.Calculation(name=MoI2.name, molecule=MoI2, method=orca, keywords=OrcaHessian, n_cores=48)
+CoIR1 = ade.Calculation(name=R1.name, molecule=R1, method=orca, keywords=OrcaHessian, n_cores=48)
+CoIP1 = ade.Calculation(name=P1.name, molecule=P1, method=orca, keywords=OrcaHessian, n_cores=48)
 
 print('Calculations have been carried out', flush=True)
 
