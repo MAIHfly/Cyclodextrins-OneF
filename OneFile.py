@@ -7,6 +7,7 @@ import os
 Cores = 48
 ade.Config.n_cores = Cores
 
+XTBOpt = ade.OptKeywords(['HF-3c'])
 
 OrcaOpt = ade.OptKeywords(['HF-3c'])
 
@@ -27,10 +28,10 @@ print(MoI2, flush=True)
 print(R1, flush=True)
 print(P1, flush=True)
 
-MoI1.optimise(method=xtb, n_cores=Cores)
-MoI2.optimise(method=xtb, n_cores=Cores)
-R1.optimise(method=xtb, n_cores=Cores)
-P1.optimise(method=xtb, n_cores=Cores)
+MoI1.optimise(method=xtb, keywords=XTBOpt, n_cores=Cores)
+MoI2.optimise(method=xtb, keywords=XTBOpt, n_cores=Cores)
+R1.optimise(method=xtb, keywords=XTBOpt, n_cores=Cores)
+P1.optimise(method=xtb, keywords=XTBOpt, n_cores=Cores)
 
 print('molecules have been optimised with XTB', flush=True)
 
