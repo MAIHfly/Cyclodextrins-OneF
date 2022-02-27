@@ -2,7 +2,7 @@ import autode as ade
 import numpy as np
 orca = ade.methods.ORCA()
 xtb = ade.methods.XTB()
-orca.keywords.hess = ade.HessianKeywords(['HF-3c'])
+orca.keywords.hess = ade.HessianKeywords(['HF', 'def2-SVP', 'def2/J', 'RIJCOSX'])
 import os
 ade.Config.n_cores = 48
 
