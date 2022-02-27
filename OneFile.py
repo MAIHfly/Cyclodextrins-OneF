@@ -4,7 +4,8 @@ orca = ade.methods.ORCA()
 xtb = ade.methods.XTB()
 import os
 
-ade.Config.n_cores = 48
+Cores = 48
+ade.Config.n_cores = Cores
 
 
 OrcaOpt = ade.OptKeywords(['HF-3c'])
@@ -26,24 +27,24 @@ print(MoI2, flush=True)
 print(R1, flush=True)
 print(P1, flush=True)
 
-MoI1.optimise(method=xtb, n_cores=48)
-MoI2.optimise(method=xtb, n_cores=48)
-R1.optimise(method=xtb, n_cores=48)
-P1.optimise(method=xtb, n_cores=48)
+MoI1.optimise(method=xtb, n_cores=Cores)
+MoI2.optimise(method=xtb, n_cores=Cores)
+R1.optimise(method=xtb, n_cores=Cores)
+P1.optimise(method=xtb, n_cores=Cores)
 
 print('molecules have been optimised with XTB', flush=True)
 
-MoI1.optimise(method=orca, n_cores=48)
-MoI2.optimise(method=orca, n_cores=48)
-R1.optimise(method=orca, n_cores=48)
-P1.optimise(method=orca, n_cores=48)
+MoI1.optimise(method=orca, n_cores=Cores)
+MoI2.optimise(method=orca, n_cores=Cores)
+R1.optimise(method=orca, n_cores=Cores)
+P1.optimise(method=orca, n_cores=Cores)
 
 print('molecules have been optimised with ORCA', flush=True)
 
-CoI1 = ade.Calculation(name=MoI1.name, molecule=MoI1, method=orca, keywords=OrcaHessian, n_cores=48)
-CoI2 = ade.Calculation(name=MoI2.name, molecule=MoI2, method=orca, keywords=OrcaHessian, n_cores=48)
-CoIR1 = ade.Calculation(name=R1.name, molecule=R1, method=orca, keywords=OrcaHessian, n_cores=48)
-CoIP1 = ade.Calculation(name=P1.name, molecule=P1, method=orca, keywords=OrcaHessian, n_cores=48)
+CoI1 = ade.Calculation(name=MoI1.name, molecule=MoI1, method=orca, keywords=OrcaHessian, n_cores=Cores)
+CoI2 = ade.Calculation(name=MoI2.name, molecule=MoI2, method=orca, keywords=OrcaHessian, n_cores=Cores)
+CoIR1 = ade.Calculation(name=R1.name, molecule=R1, method=orca, keywords=OrcaHessian, n_cores=Cores)
+CoIP1 = ade.Calculation(name=P1.name, molecule=P1, method=orca, keywords=OrcaHessian, n_cores=Cores)
 
 print('Calculations have been carried out', flush=True)
 
@@ -54,10 +55,10 @@ CoIP1.output.filename = P1.name+'_hess_orca.out'
 
 print('calculations have been output to files', flush=True)
 
-MoI1.calc_thermo(calc=CoI1, n_cores=48)
-MoI2.calc_thermo(calc=CoI2, n_cores=48)
-R1.calc_thermo(calc=CoIR1, n_cores=48)
-P1.calc_thermo(calc=CoIP1, n_cores=48)
+MoI1.calc_thermo(calc=CoI1, n_cores=Cores)
+MoI2.calc_thermo(calc=CoI2, n_cores=Cores)
+R1.calc_thermo(calc=CoIR1, n_cores=Cores)
+P1.calc_thermo(calc=CoIP1, n_cores=Cores)
 
 print('thermodynamic calculations have been carried out', flush=True)
 
