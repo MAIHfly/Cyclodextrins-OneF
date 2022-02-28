@@ -9,7 +9,7 @@
 set -x
 
 cd /
-cd /jet/home/maihfly/MAIHfly_Projects/aI45Me2CyDNH-Cyclo/Cyclodextrins-OneF
+cd /jet/home/maihfly/MAIHfly_Projects/aICyDNH-Cyclo/Cyclodextrins-OneF
 module load orca
 module load openmpi/4.1.1-gcc8.3.1 
 module load anaconda3
