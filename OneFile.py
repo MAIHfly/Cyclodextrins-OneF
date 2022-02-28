@@ -5,16 +5,16 @@ import os
 Cores = 48
 ade.Config.n_cores = Cores
 
-orca = ade.methods.ORCA()
-xtb = ade.methods.XTB()
-
-kwds = ade.Config.orca.keywords
+kwds = ade.Config.ORCA.keywords
 kwds.sp = ['HF-3c']
 kwds.opt = ['HF-3c']
 kwds.low_opt = ['HF-3c']
 kwds.hess = ['HF-3c']
 kwds.grad = ['HF-3c']
 kwds.opt_ts = ['HF-3c']
+
+orca = ade.methods.ORCA()
+xtb = ade.methods.XTB()
 
 MoI1 = ade.Molecule('butane.xyz', solvent_name=None, charge=0)
 MoI2 = ade.Molecule('pentane.xyz', solvent_name=None, charge=0)
