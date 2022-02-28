@@ -25,10 +25,10 @@ P1.optimise(method=xtb, n_cores=Cores)
 
 print('molecules have been optimised with XTB', flush=True)
 
-MoI1.optimise(method=orca, keywords=ade.OptKeywords(['PBEPBE', 'def2SVP', 'Freq']), n_cores=Cores)
-MoI2.optimise(method=orca, keywords=ade.OptKeywords(['PBEPBE', 'def2SVP', 'Freq']), n_cores=Cores)
-R1.optimise(method=orca, keywords=ade.OptKeywords(['PBEPBE', 'def2SVP', 'Freq']), n_cores=Cores)
-P1.optimise(method=orca, keywords=ade.OptKeywords(['PBEPBE', 'def2SVP', 'Freq']),n_cores=Cores)
+MoI1.optimise(method=orca, keywords=ade.OptKeywords(['HF-3c']), n_cores=Cores)
+MoI2.optimise(method=orca, keywords=ade.OptKeywords(['HF-3c']), n_cores=Cores)
+R1.optimise(method=orca, keywords=ade.OptKeywords(['HF-3c']), n_cores=Cores)
+P1.optimise(method=orca, keywords=ade.OptKeywords(['HF-3c']),n_cores=Cores)
 
 print('molecules have been optimised with ORCA', flush=True)
 
