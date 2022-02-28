@@ -8,8 +8,8 @@ ade.Config.n_cores = Cores
 orca = ade.methods.ORCA()
 xtb = ade.methods.XTB()
 
-MoI1 = ade.Molecule('bI45Me2CyDNH.xyz', solvent_name=None, charge=0)
-MoI2 = ade.Molecule('bI45Me2CyDNH2.xyz', solvent_name=None, charge=1)
+MoI1 = ade.Molecule('bICyDNH.xyz', solvent_name=None, charge=0)
+MoI2 = ade.Molecule('bICyDNH2.xyz', solvent_name=None, charge=1)
 R1 = ade.Molecule('p-fluorophenol',smiles='C1=CC(=CC=C1O)F', solvent_name='acetonitrile')
 P1 = ade.Molecule('p-fluorophenolate',smiles='C1=CC(=CC=C1[O-])F', solvent_name='acetonitrile', charge=-1)
 
