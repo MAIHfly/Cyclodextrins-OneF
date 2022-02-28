@@ -53,10 +53,10 @@ P1.calc_thermo(calc=CoIP1, n_cores=Cores)
 
 print('thermodynamic calculations have been carried out', flush=True)
 
-GibbsE1 = MoI1.g_cont
-GibbsE2 = MoI2.g_cont
-GibbsR1 = R1.g_cont
-GibbsP1 = P1.g_cont
+GibbsE1 = MoI1.free_energy
+GibbsE2 = MoI2.free_energy
+GibbsR1 = R1.free_energy
+GibbsP1 = P1.free_energy
 
 print('gibbs free energies acquired', flush=True)
 
