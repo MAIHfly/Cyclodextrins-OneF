@@ -1,22 +1,20 @@
 import autode as ade
 import numpy as np
-orca = ade.methods.ORCA()
-xtb = ade.methods.XTB()
 import os
 
 Cores = 48
 ade.Config.n_cores = Cores
 
-XTBOpt = ade.OptKeywords(['PBEPBE', 'def2SVP', 'Freq'])
+orca = ade.methods.ORCA()
+xtb = ade.methods.XTB()
 
-OrcaOpt = ade.OptKeywords(['PBEPBE', 'def2SVP', 'Freq'])
-
-OrcaSP = ade.SinglePointKeywords(['PBEPBE', 'def2SVP', 'Freq'])
-
-OrcaHessian = ade.HessianKeywords(['PBEPBE', 'def2SVP', 'Freq'])
-
-
-
+kwds = ade.Config.orca.keywords
+kwds.sp = ['HF-3c']
+kwds.opt = ['HF-3c']
+kwds.low_opt = ['HF-3c']
+kwds.hess = ['HF-3c']
+kwds.grad = ['HF-3c']
+kwds.opt_ts = ['HF-3c']
 
 MoI1 = ade.Molecule('butane.xyz', solvent_name=None, charge=0)
 MoI2 = ade.Molecule('pentane.xyz', solvent_name=None, charge=0)
@@ -28,24 +26,24 @@ print(MoI2, flush=True)
 print(R1, flush=True)
 print(P1, flush=True)
 
-MoI1.optimise(method=xtb, keywords=XTBOpt, n_cores=Cores)
-MoI2.optimise(method=xtb, keywords=XTBOpt, n_cores=Cores)
-R1.optimise(method=xtb, keywords=XTBOpt, n_cores=Cores)
-P1.optimise(method=xtb, keywords=XTBOpt, n_cores=Cores)
+MoI1.optimise(method=xtb, n_cores=Cores)
+MoI2.optimise(method=xtb, n_cores=Cores)
+R1.optimise(method=xtb, n_cores=Cores)
+P1.optimise(method=xtb, n_cores=Cores)
 
 print('molecules have been optimised with XTB', flush=True)
 
-MoI1.optimise(method=orca, keywords=OrcaOpt, n_cores=Cores)
-MoI2.optimise(method=orca, keywords=OrcaOpt, n_cores=Cores)
-R1.optimise(method=orca, keywords=OrcaOpt, n_cores=Cores)
-P1.optimise(method=orca, keywords=OrcaOpt, n_cores=Cores)
+MoI1.optimise(method=orca, n_cores=Cores)
+MoI2.optimise(method=orca, n_cores=Cores)
+R1.optimise(method=orca, n_cores=Cores)
+P1.optimise(method=orca, n_cores=Cores)
 
 print('molecules have been optimised with ORCA', flush=True)
 
-CoI1 = ade.Calculation(name=MoI1.name, molecule=MoI1, method=orca, keywords=OrcaHessian, n_cores=Cores)
-CoI2 = ade.Calculation(name=MoI2.name, molecule=MoI2, method=orca, keywords=OrcaHessian, n_cores=Cores)
-CoIR1 = ade.Calculation(name=R1.name, molecule=R1, method=orca, keywords=OrcaHessian, n_cores=Cores)
-CoIP1 = ade.Calculation(name=P1.name, molecule=P1, method=orca, keywords=OrcaHessian, n_cores=Cores)
+CoI1 = ade.Calculation(name=MoI1.name, molecule=MoI1, method=orca, keywords=kwds.hess, n_cores=Cores)
+CoI2 = ade.Calculation(name=MoI2.name, molecule=MoI2, method=orca, keywords=kwds.hess, n_cores=Cores)
+CoIR1 = ade.Calculation(name=R1.name, molecule=R1, method=orca, keywords=kwds.hess, n_cores=Cores)
+CoIP1 = ade.Calculation(name=P1.name, molecule=P1, method=orca, keywords=kwds.hess, n_cores=Cores)
 
 print('Calculations have been carried out', flush=True)
 
