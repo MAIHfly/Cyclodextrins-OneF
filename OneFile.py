@@ -25,17 +25,17 @@ P1.optimise(method=xtb, n_cores=Cores)
 
 print('molecules have been optimised with XTB', flush=True)
 
-MoI1.optimise(method=orca, keywords=ade.OptKeywords(['HF-3c']), n_cores=Cores)
-MoI2.optimise(method=orca, keywords=ade.OptKeywords(['HF-3c']), n_cores=Cores)
-R1.optimise(method=orca, keywords=ade.OptKeywords(['HF-3c']), n_cores=Cores)
-P1.optimise(method=orca, keywords=ade.OptKeywords(['HF-3c']),n_cores=Cores)
+MoI1.optimise(method=orca, keywords=ade.OptKeywords(['Opt']), n_cores=Cores)
+MoI2.optimise(method=orca, keywords=ade.OptKeywords(['Opt']), n_cores=Cores)
+R1.optimise(method=orca, keywords=ade.OptKeywords(['Opt']), n_cores=Cores)
+P1.optimise(method=orca, keywords=ade.OptKeywords(['Opt']),n_cores=Cores)
 
 print('molecules have been optimised with ORCA', flush=True)
 
-CoI1 = ade.Calculation(name=MoI1.name, molecule=MoI1, method=orca, keywords=ade.HessianKeywords(['PBEPBE', 'def2SVP', 'Freq', 'Dipole Moments']), n_cores=Cores)
-CoI2 = ade.Calculation(name=MoI2.name, molecule=MoI2, method=orca, keywords=ade.HessianKeywords(['PBEPBE', 'def2SVP', 'Freq', 'Dipole Moments']), n_cores=Cores)
-CoIR1 = ade.Calculation(name=R1.name, molecule=R1, method=orca, keywords=ade.HessianKeywords(['PBEPBE', 'def2SVP', 'Freq', 'Dipole Moments']), n_cores=Cores)
-CoIP1 = ade.Calculation(name=P1.name, molecule=P1, method=orca, keywords=ade.HessianKeywords(['PBEPBE', 'def2SVP', 'Freq', 'Dipole Moments']), n_cores=Cores)
+CoI1 = ade.Calculation(name=MoI1.name, molecule=MoI1, method=orca, keywords=ade.HessianKeywords(['Freq']), n_cores=Cores)
+CoI2 = ade.Calculation(name=MoI2.name, molecule=MoI2, method=orca, keywords=ade.HessianKeywords(['Freq']), n_cores=Cores)
+CoIR1 = ade.Calculation(name=R1.name, molecule=R1, method=orca, keywords=ade.HessianKeywords(['Freq']), n_cores=Cores)
+CoIP1 = ade.Calculation(name=P1.name, molecule=P1, method=orca, keywords=ade.HessianKeywords(['Freq']), n_cores=Cores)
 
 print('Calculations have been carried out', flush=True)
 
