@@ -1,4 +1,5 @@
 import autode as ade
+from autode.methods import ORCA
 import numpy as np
 import os
 
