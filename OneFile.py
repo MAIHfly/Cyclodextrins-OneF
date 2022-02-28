@@ -39,24 +39,24 @@ CoIP1 = ade.Calculation(name=P1.name, molecule=P1, method=orca, keywords=ade.Hes
 
 print('Calculations have been carried out', flush=True)
 
-CoI1.output.filename = MoI1.name+'_hess_orca.out'
-CoI2.output.filename = MoI2.name+'_hess_orca.out'
-CoIR1.output.filename = R1.name+'_hess_orca.out'
-CoIP1.output.filename = P1.name+'_hess_orca.out'
+CoI1.output.filename = MoI1.name+'_hess_orca.hess'
+CoI2.output.filename = MoI2.name+'_hess_orca.hess'
+CoIR1.output.filename = R1.name+'_hess_orca.hess'
+CoIP1.output.filename = P1.name+'_hess_orca.hess'
 
 print('calculations have been output to files', flush=True)
 
-MoI1.calc_thermo(calc=CoI1, keywords=['HF-3c'], n_cores=Cores)
-MoI2.calc_thermo(calc=CoI2, keywords=['HF-3c'], n_cores=Cores)
-R1.calc_thermo(calc=CoIR1, keywords=['HF-3c'], n_cores=Cores)
-P1.calc_thermo(calc=CoIP1, keywords=['HF-3c'], n_cores=Cores)
+MoI1.calc_thermo(calc=CoI1, keywords=['HF-3c'], temp=298.15, ss='1atm', sn=1, n_cores=Cores)
+MoI2.calc_thermo(calc=CoI2, keywords=['HF-3c'], temp=298.15, ss='1atm', sn=1, n_cores=Cores)
+R1.calc_thermo(calc=CoIR1, keywords=['HF-3c'], temp=298.15, ss='1atm', sn=1, n_cores=Cores)
+P1.calc_thermo(calc=CoIP1, keywords=['HF-3c'], temp=298.15, ss='1atm', sn=1, n_cores=Cores)
 
 print('thermodynamic calculations have been carried out', flush=True)
 
-GibbsE1 = MoI1.free_energy
-GibbsE2 = MoI2.free_energy
-GibbsR1 = R1.free_energy
-GibbsP1 = P1.free_energy
+GibbsE1 = MoI1.g_cont
+GibbsE2 = MoI2.g_cont
+GibbsR1 = R1.g_cont
+GibbsP1 = P1.g_cont
 
 print('gibbs free energies acquired', flush=True)
 
