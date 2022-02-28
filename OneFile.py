@@ -54,10 +54,10 @@ CoIP1.output.filename = P1.name+'_hess_orca.out'
 
 print('calculations have been output to files', flush=True)
 
-MoI1.calc_thermo(calc=CoI1, n_cores=Cores)
-MoI2.calc_thermo(calc=CoI2, n_cores=Cores)
-R1.calc_thermo(calc=CoIR1, n_cores=Cores)
-P1.calc_thermo(calc=CoIP1, n_cores=Cores)
+MoI1.calc_thermo(calc=CoI1, keywords=kwds.hess, n_cores=Cores)
+MoI2.calc_thermo(calc=CoI2, keywords=kwds.hess, n_cores=Cores)
+R1.calc_thermo(calc=CoIR1, keywords=kwds.hess, n_cores=Cores)
+P1.calc_thermo(calc=CoIP1, keywords=kwds.hess, n_cores=Cores)
 
 print('thermodynamic calculations have been carried out', flush=True)
 
